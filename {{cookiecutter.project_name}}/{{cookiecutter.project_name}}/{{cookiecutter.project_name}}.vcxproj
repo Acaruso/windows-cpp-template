@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <!-- use cpp17 -->
-  <PropertyGroup>
-    <LanguageStandard>stdcpp17</LanguageStandard>
-  </PropertyGroup>
-
-  <!-- this allows you to use absolute paths for includes, relative to project root -->
   <ItemDefinitionGroup>
     <ClCompile>
+      <!-- this allows you to use absolute paths for includes, relative to project root -->
       <AdditionalIncludeDirectories>
-        $(SolutionDir){{cookiecutter.project_name}}/;%(AdditionalIncludeDirectories)
+        $(SolutionDir)fun-game/;%(AdditionalIncludeDirectories)
       </AdditionalIncludeDirectories>
+      <!-- use cpp17 -->
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
 
