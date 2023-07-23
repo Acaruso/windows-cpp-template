@@ -1,0 +1,6 @@
+- cookiecutter template for Windows C++ projects
+- to use:
+  - clone repo locally
+  - do `cookiecutter windows-cpp-template`
+- based on this project:
+  - https://github.com/Acaruso/win32-direct2d-wasapi
