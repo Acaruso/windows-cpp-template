@@ -8,6 +8,7 @@
 #include <dwrite.h>
 #include <windows.h>
 #include <windowsx.h>
+#include <winnt.h>
 #pragma comment(lib, "d2d1")
 #pragma comment(lib, "dwrite")
 
@@ -17,27 +18,21 @@
 
 class GraphicsService {
 public:
-    HRESULT init(HWND window) {
-        HRESULT hr;
-
-        this->window = window;
-
+    GraphicsService(HWND window, HRESULT& hr) : window(window) {
         hr = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &factory);
         if (FAILED(hr)) {
-            return hr;
+            return;
         }
 
         hr = createGraphicsResources();
         if (FAILED(hr)) {
-            return hr;
+            return;
         }
 
         hr = createFontResources();
         if (FAILED(hr)) {
-            return hr;
+            return;
         }
-
-        return hr;
     }
 
     void beginDraw() {
