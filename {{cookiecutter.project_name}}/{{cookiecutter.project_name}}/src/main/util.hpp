@@ -58,6 +58,10 @@ inline void storeInstanceData(HWND window, LPARAM lParam) {
     SetWindowLongPtr(window, GWLP_USERDATA, (LONG_PTR)createParam);
 }
 
+inline void storeInstanceData(HWND window, void* p_instanceData) {
+    SetWindowLongPtr(window, GWLP_USERDATA, (LONG_PTR)p_instanceData);
+}
+
 inline void* getInstanceData(HWND window) {
     return (void*)GetWindowLongPtrW(window, GWLP_USERDATA);
 }

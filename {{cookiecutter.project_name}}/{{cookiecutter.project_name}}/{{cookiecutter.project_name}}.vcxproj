@@ -4,7 +4,7 @@
     <ClCompile>
       <!-- this allows you to use absolute paths for includes, relative to project root -->
       <AdditionalIncludeDirectories>
-        $(SolutionDir)fun-game/;%(AdditionalIncludeDirectories)
+        $(SolutionDir){{cookiecutter.project_name}}/;%(AdditionalIncludeDirectories)
       </AdditionalIncludeDirectories>
       <!-- use cpp17 -->
       <LanguageStandard>stdcpp17</LanguageStandard>

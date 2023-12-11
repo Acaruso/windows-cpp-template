@@ -33,12 +33,19 @@ public:
 
     D2D1_RECT_F rect{100, 100, 150, 150};
 
-    HRESULT init(HWND window) {
-        HRESULT hr;
-        this->window = window;
-        hr = gfx.init(window);
+    // HRESULT init(HWND window) {
+    //     HRESULT hr;
+    //     this->window = window;
+    //     hr = gfx.init(window);
+    //     audioThread = std::thread(&audioMain, &queue);
+    //     return hr;
+    // }
+
+    App(HWND window, HRESULT& hr) :
+        window(window),
+        gfx(window, hr)
+    {
         audioThread = std::thread(&audioMain, &queue);
-        return hr;
     }
 
     bool shouldHandleMessage(UINT message) {
