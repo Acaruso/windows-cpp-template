@@ -26,21 +26,23 @@ void AudioService::run() {
 
     wasapiClient.startPlaying();
 
-    std::string s;
+    bool quit = false;
+    std::string message;
 
     // main loop:
-    while (true) {
+    while (!quit) {
         WaitForSingleObject(wasapiClient.hEvent, INFINITE);
 
         // handle events from main thread
         trig = false;
-        if (queue->try_dequeue(s)) {
-            if (s == "quit") {
-                std::cout << "audio thread: " << s << std::endl;
+        while (!quit && queue->try_dequeue(message)) {
+            if (message == "quit") {
+                std::cout << "audio thread: " << message << std::endl;
+                quit = true;
                 break;
             }
 
-            if (s == "trig") {
+            if (message == "trig") {
                 trig = true;
             }
         }
